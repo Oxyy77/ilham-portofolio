@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar"
-import About from "./layouts/about"
+import About from "./layouts/About"
 import Hero from "./layouts/Hero"
 import Skill from "./layouts/Skill"
 import Service from "./layouts/Service"
