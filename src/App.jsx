@@ -1,4 +1,4 @@
-import Navbar from "./components/navbar"
+import Navbar from "./components/Navbar"
 import About from "./layouts/about"
 import Hero from "./layouts/Hero"
 import Skill from "./layouts/Skill"
