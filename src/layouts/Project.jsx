@@ -40,12 +40,12 @@ function Project() {
                 <div className="flex flex-col items-start">
                   <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                     <img
-                      src="/src/assets/img/project/project5.png"
+                      src="/assets/img/project/project5.png"
                       alt="Project 1"
                       className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                     />
                     <img
-                      src="/src/assets/img/project/project5-hover.png"
+                      src="/assets/img/project/project5-hover.png"
                       alt="Project 1 Hover"
                       className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     />
@@ -61,12 +61,12 @@ function Project() {
                  <div className="flex flex-col items-start">
                 <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                   <img
-                    src="/src/assets/img/project/project3.png"
+                    src="/assets/img/project/project3.png"
                     alt="Project 2"
                     className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                   />
                   <img
-                    src="/src/assets/img/project/project3-hover.png"
+                    src="/assets/img/project/project3-hover.png"
                     alt="Project 2 Hover"
                     className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   />
@@ -81,12 +81,12 @@ function Project() {
                 <div className="flex flex-col items-start">
                 <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                   <img
-                    src="/src/assets/img/project/project6.png"
+                    src="/assets/img/project/project6.png"
                     alt="Project 3"
                     className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                   />
                   <img
-                    src="/src/assets/img/project/project6-hover.png"
+                    src="/assets/img/project/project6-hover.png"
                     alt="Project 3 Hover"
                     className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   />
@@ -101,12 +101,12 @@ function Project() {
                  <div className="flex flex-col items-start">
                 <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                   <img
-                    src="/src/assets/img/project/project4.png"
+                    src="/assets/img/project/project4.png"
                     alt="Project 4"
                     className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                   />
                   <img
-                    src="/src/assets/img/project/project4-hover.png"
+                    src="/assets/img/project/project4-hover.png"
                     alt="Project 4 Hover"
                     className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   />
@@ -136,12 +136,12 @@ function Project() {
                  <div className="flex flex-col items-start">
                   <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                     <img
-                      src="/src/assets/img/project/project1.png"
+                      src="/assets/img/project/project1.png"
                       alt="Project 1"
                       className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                     />
                     <img
-                      src="/src/assets/img/project/project1-hover.png"
+                      src="/assets/img/project/project1-hover.png"
                       alt="Project 1 Hover"
                       className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     />
@@ -158,12 +158,12 @@ function Project() {
                 <div className="flex flex-col items-start">
                 <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                   <img
-                    src="/src/assets/img/project/project2.png"
+                    src="/assets/img/project/project2.png"
                     alt="Project 2"
                     className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                   />
                   <img
-                    src="/src/assets/img/project/project2-hover.png"
+                    src="/assets/img/project/project2-hover.png"
                     alt="Project 2 Hover"
                     className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   />
@@ -178,12 +178,12 @@ function Project() {
                 <div className="flex flex-col items-start">
                 <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                   <img
-                    src="/src/assets/img/project/project7.png"
+                    src="/assets/img/project/project7.png"
                     alt="Project 3"
                     className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                   />
                   <img
-                    src="/src/assets/img/project/project7-hover.png"
+                    src="/assets/img/project/project7-hover.png"
                     alt="Project 3 Hover"
                     className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   />

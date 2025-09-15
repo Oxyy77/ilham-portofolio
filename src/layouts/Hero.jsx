@@ -53,7 +53,7 @@ function Hero() {
       <div className="hero-photo bg-[#0d0d0d] rounded-[48px] p-4 inset-0 border border-white/10 overflow-hidden pointer-events-none z-1">
         <div className="w-full h-full relative">
           <img
-            src="/src/assets/img/ilham2.png"
+            src="/assets/img/ilham2.png"
             alt="Hero"
             className="absolute inset-0 w-full h-full object-cover object-top rounded-[32px]"
           />

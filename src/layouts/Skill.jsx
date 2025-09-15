@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 const Skill = () => {
   const logos = [
-    "/src/assets/img/flutter.svg",
-    "/src/assets/img/react.svg",
-    "/src/assets/img/php.svg",
-    "/src/assets/img/ts.svg",
-    "/src/assets/img/laravel.svg",
-    "/src/assets/img/js.svg",
-    "/src/assets/img/kotlin.svg",
+    "/assets/img/flutter.svg",
+    "/assets/img/react.svg",
+    "/assets/img/php.svg",
+    "/assets/img/ts.svg",
+    "/assets/img/laravel.svg",
+    "/assets/img/js.svg",
+    "/assets/img/kotlin.svg",
   ];
 
   // Gandakan list untuk seamless loop

@@ -70,7 +70,7 @@ function About() {
       id="about"
     >
       <div className="p-4 flex justify-center items-center">
-        <img className="w-100 h-100" src="/src/assets/img/avatar.png" alt="Avatar" />
+        <img className="w-100 h-100" src="/assets/img/avatar.png" alt="Avatar" />
       </div>
 
       <div className="flex flex-col justify-center gap-10">
