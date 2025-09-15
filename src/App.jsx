@@ -3,7 +3,7 @@ import About from "./layouts/About"
 import Hero from "./layouts/Hero"
 import Skill from "./layouts/Skill"
 import Service from "./layouts/Service"
-import Project from "./layouts/project"
+import Project from "./layouts/Project"
 import Contact from "./layouts/Contact"
 import Footer from "./layouts/Footer"
 
