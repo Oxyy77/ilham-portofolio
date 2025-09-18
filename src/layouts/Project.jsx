@@ -211,20 +211,16 @@ function Project() {
                 <div className="flex flex-col items-start">
                   <div className="relative w-full h-48 overflow-hidden rounded-lg group shadow-md">
                     <img
-                      src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=500&h=300&fit=crop"
+                      src="/assets/img/project/project8.png"
                       alt="Project 1"
                       className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                     />
-                    <img
-                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop"
-                      alt="Project 1 Hover"
-                      className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    />
+                    
                   </div>
                   {/* Tulisan bawah */}
                   <div className="mt-2 text-start">
-                    <h3 className="text-lg font-semibold text-white">Viral</h3>
-                    <p className="text-sm text-gray-300">Template · $129</p>
+                    <h3 className="text-lg font-semibold text-white">Robot Pengendali Gulma + Machine Learning</h3>
+                    <p className="text-sm text-gray-300">Individu · Hardwore + Machine Learning</p>
                   </div>
                 </div>
 
