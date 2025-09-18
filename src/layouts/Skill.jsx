@@ -16,7 +16,7 @@ const Skill = () => {
   const images = [...logos, ...logos];
 
   return (
-    <section className="overflow-hidden MyGradient mt-10 mx-75">
+    <section className="overflow-hidden MyGradient mt-10 mx-10 sm:mx-20 md:mx-40 lg:mx-75">
       <h2 className="text-l text-gray-400 font-medium text-center mb-10">Experienced in a Variety of Skills</h2> {}
       <motion.div
         className="flex w-max"

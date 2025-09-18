@@ -5,7 +5,7 @@ import { faLinkedin, faInstagram, faGithub } from "@fortawesome/free-brands-svg-
 function Contact() {
   return (
     <section
-      className="flex flex-col justify-center items-center pt-24 py-8 min-h-screen text-white bg-[#0d0d0d]"
+      className="flex flex-col justify-center items-center  py-8 min-h-screen text-white bg-[#0d0d0d]"
       id="contact"
     >
       {/* Header */}

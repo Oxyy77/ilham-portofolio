@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Project() {
   return (
     <section
-      className="flex flex-col justify-center items-center pt-24 py-8 min-h-screen text-white bg-[#0d0d0d]"
+      className="flex flex-col justify-center items-center py-8 min-h-screen text-white bg-[#0d0d0d]"
       id="project"
     >
       <div className="flex justify-center items-center flex-col">

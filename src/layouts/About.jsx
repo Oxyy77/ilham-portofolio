@@ -66,12 +66,17 @@ function About() {
   return (
     <section
       ref={aboutRef}
-      className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-24 py-8 min-h-screen text-white"
+      className="grid grid-cols-1 px-6 sm:px-8 md:px-12 lg:px-20 md:grid-cols-2 gap-6 py-8 min-h-screen text-white"
       id="about"
     >
       <div className="p-4 flex justify-center items-center">
-        <img className="w-100 h-100" src="/assets/img/avatar.png" alt="Avatar" />
-      </div>
+  <img
+    className="w-64 sm:w-72 md:w-84 lg:w-100 h-auto rounded-full object-cover"
+    src="/assets/img/avatar.png"
+    alt="Avatar"
+  />
+</div>
+
 
       <div className="flex flex-col justify-center gap-10">
         <div className="flex flex-col space-x-1">
@@ -112,15 +117,16 @@ function About() {
         </div>
 
         {/* Download CV Button */}
-        <div>
-          <button
-            type="button"
-            className="flex gap-3 py-2.5 px-5 me-2 mb-2 text-sm font-semibold text-gray-900 cursor-pointer focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#a3850d] focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-          >
-            <FontAwesomeIcon icon={faDownload} />
-            Download CV
-          </button>
-        </div>
+       <div className="flex justify-center sm:justify-center md:justify-center lg:justify-start">
+  <button
+    type="button"
+    className="flex gap-3 py-2.5 px-5 me-2 mb-2 text-sm font-semibold text-gray-900 cursor-pointer focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#a3850d] focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+  >
+    <FontAwesomeIcon icon={faDownload} />
+    Download CV
+  </button>
+</div>
+
       </div>
     </section>
   );

@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <div className="bg-[#0d0d0d] min-h-screen px-20">
+    <div className="bg-[#0d0d0d] min-h-screen">
       <Navbar />
       <Hero />
       <Skill />
