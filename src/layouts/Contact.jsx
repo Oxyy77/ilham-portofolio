@@ -1,89 +1,111 @@
-import { Mail, Phone, MapPin } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faInstagram, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { useState } from "react";
+import { Mail, Phone, MapPin, Copy, Check, Github, Linkedin, Instagram } from "lucide-react";
+import { profile } from "@/lib/content";
+import SectionHeading from "@/components/SectionHeading";
+
+const CARD_BASE =
+  "rounded-xl border border-[var(--border-soft)] bg-[var(--surface)]/60 p-6 hover:border-[var(--border-strong)] transition-colors";
 
 function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      // clipboard unavailable — the email is still visible to copy manually
+    }
+  };
+
   return (
-    <section
-      className="flex flex-col justify-center items-center  py-8 min-h-screen text-white bg-[#0d0d0d]"
-      id="contact"
-    >
-      {/* Header */}
-      <div className="flex justify-center items-center flex-col text-center">
-        <div className="flex flex-col items-center">
-          <div
-            style={{ backgroundColor: "#a3850d" }}
-            className="w-10 h-[2px] mb-2"
-          ></div>
-          <p className="text-md font-medium text-gray-400">Get in touch.</p>
-          <p className="text-4xl font-bold">
-            My{" "}
-            <span style={{ color: "#a3850d" }} className="text-4xl">
-              Contact
-            </span>
-          </p>
-        </div>
-      </div>
+    <section id="contact" className="px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div className="mx-auto max-w-5xl">
+        <SectionHeading
+          eyebrow="// contact.tsx"
+          title="Let's build something"
+          accentWord="something"
+          align="center"
+        />
+        <p className="-mt-6 mb-12 text-center text-[var(--text-muted)] max-w-md mx-auto text-sm sm:text-[15px]">
+          Open to internships, freelance work, and collaborations. Reach out through whichever channel is easiest.
+        </p>
 
-      {/* Contact Info */}
-     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-16 px-6 w-full max-w-5xl">
+        <div className="grid sm:grid-cols-2 gap-4">
+          <button onClick={copyEmail} className={`${CARD_BASE} text-left cursor-pointer`}>
+            <div className="flex items-center justify-between">
+              <Mail size={22} style={{ color: "var(--signal)" }} />
+              <span className="font-mono text-[11px] text-[var(--text-faint)] flex items-center gap-1">
+                {copied ? (
+                  <>
+                    <Check size={12} /> copied
+                  </>
+                ) : (
+                  <>
+                    <Copy size={12} /> copy
+                  </>
+                )}
+              </span>
+            </div>
+            <h3 className="font-display font-semibold text-base text-[var(--text)] mt-4">
+              Email
+            </h3>
+            <p className="text-sm text-[var(--text-muted)] mt-1">{profile.email}</p>
+          </button>
 
-        {/* Email */}
-        <div className="bg-[#1a1a1a] p-6 rounded-2xl shadow-md hover:shadow-lg hover:bg-[#222] transition">
-          <Mail className="w-10 h-10 mb-4 text-[#a3850d]" />
-          <h3 className="text-xl font-semibold mb-2">Email</h3>
-          <p className="text-gray-400">ilhmoxy@gmail.com</p>
-        </div>
+          <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className={CARD_BASE}>
+            <Phone size={22} style={{ color: "var(--copper)" }} />
+            <h3 className="font-display font-semibold text-base text-[var(--text)] mt-4">
+              Phone
+            </h3>
+            <p className="text-sm text-[var(--text-muted)] mt-1">{profile.phone}</p>
+          </a>
 
-        {/* Phone */}
-        <div className="bg-[#1a1a1a] p-6 rounded-2xl shadow-md hover:shadow-lg hover:bg-[#222] transition">
-          <Phone className="w-10 h-10 mb-4 text-[#a3850d]" />
-          <h3 className="text-xl font-semibold mb-2">Phone</h3>
-          <p className="text-gray-400">+62 898 4828 899</p>
-        </div>
+          <div className={CARD_BASE}>
+            <MapPin size={22} style={{ color: "var(--signal)" }} />
+            <h3 className="font-display font-semibold text-base text-[var(--text)] mt-4">
+              Location
+            </h3>
+            <p className="text-sm text-[var(--text-muted)] mt-1">{profile.location}</p>
+          </div>
 
-        {/* Address */}
-        <div className="bg-[#1a1a1a] p-6 rounded-2xl shadow-md hover:shadow-lg hover:bg-[#222] transition">
-          <MapPin className="w-10 h-10 mb-4 text-[#a3850d]" />
-          <h3 className="text-xl font-semibold mb-2">Address</h3>
-          <p className="text-gray-400">Bukittinggi, Sumatera Barat</p>
-        </div>
-
-        {/* Social Media */}
-        <div className="bg-[#1a1a1a] p-6 rounded-2xl shadow-md hover:shadow-lg hover:bg-[#222] transition flex flex-col items-center">
-          <h3 className="text-xl font-semibold mb-4">Social Media</h3>
-          <div className="flex space-x-6">
-            {/* LinkedIn */}
-            <a
-              href="https://linkedin.com/in/ilham-‎-29857b249"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#a3850d] transition"
-            >
-              <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            </a>
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/ilham20___"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#a3850d] transition"
-            >
-              <FontAwesomeIcon icon={faInstagram} size="2x" />
-            </a>
-            {/* GitHub */}
-            <a
-              href="https://github.com/Oxyy77"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#a3850d] transition"
-            >
-              <FontAwesomeIcon icon={faGithub} size="2x" />
-            </a>
+          <div className={CARD_BASE}>
+            <h3 className="font-display font-semibold text-base text-[var(--text)] mb-4">
+              Elsewhere
+            </h3>
+            <div className="flex items-center gap-3">
+              <a
+                href={profile.socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-lg border border-[var(--border-soft)] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--signal)] hover:border-[var(--border-strong)] transition-colors"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href={profile.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-lg border border-[var(--border-soft)] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--signal)] hover:border-[var(--border-strong)] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href={profile.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-lg border border-[var(--border-soft)] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--signal)] hover:border-[var(--border-strong)] transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      
     </section>
   );
 }

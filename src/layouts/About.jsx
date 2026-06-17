@@ -1,132 +1,110 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
+import { GraduationCap, Download } from "lucide-react";
+import { profile, stats, education } from "@/lib/content";
+import SectionHeading from "@/components/SectionHeading";
+
+function CounterStat({ target, suffix, label, start }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+    let current = 0;
+    const duration = 900;
+    const stepTime = Math.max(Math.floor(duration / target), 15);
+
+    const timer = setInterval(() => {
+      current += 1;
+      setCount(current);
+      if (current >= target) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [start, target]);
+
+  return (
+    <div>
+      <div className="font-display font-semibold text-3xl sm:text-4xl text-[var(--signal)]">
+        {count}
+        {suffix}
+      </div>
+      <span className="font-mono text-[12px] text-[var(--text-muted)]">{label}</span>
+    </div>
+  );
+}
 
 function About() {
-  const stats = [
-    { value: 10, label: "Project Cleared" },
-    { value: 3, label: "Achievements" },
-    { value: 15, label: "Certificates Earned" },
-  ];
-
-  const CounterStat = ({ target, label, start }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (!start) return;
-
-      let current = 0;
-      const duration = 1000;
-      const stepTime = Math.max(Math.floor(duration / target), 15);
-
-      const timer = setInterval(() => {
-        current += 1;
-        setCount(current);
-        if (current >= target) {
-          clearInterval(timer);
-        }
-      }, stepTime);
-
-      return () => clearInterval(timer);
-    }, [start, target]);
-
-    return (
-      <div className="block">
-        <div className="font-manrope font-bold text-4xl text-[#a3850d] mb-3 text-center lg:text-left">
-          {count}+
-        </div>
-        <span className="text-white text-center block lg:text-left">{label}</span>
-      </div>
-    );
-  };
-
   const aboutRef = useRef(null);
   const [startCounter, setStartCounter] = useState(false);
 
   useEffect(() => {
+    const node = aboutRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setStartCounter(true);
-          observer.disconnect(); // stop observing after triggered once
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
-
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
-    }
-
-    return () => {
-      if (aboutRef.current) observer.unobserve(aboutRef.current);
-    };
+    if (node) observer.observe(node);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <section
       ref={aboutRef}
-      className="grid grid-cols-1 px-6 sm:px-8 md:px-12 lg:px-20 md:grid-cols-2 gap-6 py-8 min-h-screen text-white"
       id="about"
+      className="px-4 sm:px-6 lg:px-8 py-20 sm:py-28"
     >
-      <div className="p-4 flex justify-center items-center">
-  <img
-    className="w-64 sm:w-72 md:w-84 lg:w-100 h-auto rounded-full object-cover"
-    src="/assets/img/avatar.png"
-    alt="Avatar"
-  />
-</div>
-
-
-      <div className="flex flex-col justify-center gap-10">
-        <div className="flex flex-col space-x-1">
-          <div className="mb-10">
-            <div style={{ backgroundColor: "#a3850d" }} className="w-10 h-[2px]"></div>
-            <p className="text-md font-medium text-gray-400">About me.</p>
-            <p className="text-4xl font-bold">
-              Who is{" "}
-              <span style={{ color: "#a3850d" }} className="text-4xl">
-                Ilham?
-              </span>
-            </p>
-          </div>
-
-          <p className="mt-4 max-w-xl break-words text-justify leading-relaxed text-gray-300">
-            Undergraduate student at Andalas University majoring in Computer
-            Engineering with passionate software developer specializing in web
-            and mobile development. Works as a full-stack developer, has built
-            various projects, and is comfortable working with a wide range of
-            tech stacks.
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-3">
-          <div className="w-full lg:w-4/5 mx-auto">
-            <div className="flex flex-col flex-1 gap-10 lg:gap-0 lg:flex-row lg:justify-between">
-              {stats.map((item, index) => (
-                <CounterStat
-                  key={index}
-                  target={item.value}
-                  label={item.label}
-                  start={startCounter}
-                />
-              ))}
+      <div className="mx-auto max-w-6xl grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-center">
+        <div className="flex justify-center lg:justify-start">
+          <div className="bracket-frame relative w-56 sm:w-64 lg:w-full lg:max-w-[300px]">
+            <div className="rounded-2xl overflow-hidden border border-[var(--border-soft)]">
+              <img
+                src="/assets/img/avatar.png"
+                alt={`Portrait of ${profile.name}`}
+                className="w-full h-full object-cover aspect-square"
+              />
             </div>
           </div>
         </div>
 
-        {/* Download CV Button */}
-       <div className="flex justify-center sm:justify-center md:justify-center lg:justify-start">
-  <button
-    type="button"
-    className="flex gap-3 py-2.5 px-5 me-2 mb-2 text-sm font-semibold text-gray-900 cursor-pointer focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#a3850d] focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-  >
-    <FontAwesomeIcon icon={faDownload} />
-    Download CV
-  </button>
-</div>
+        <div className="min-w-0">
+          <SectionHeading eyebrow="// about.tsx" title="Who is Ilham" accentWord="Ilham" />
 
+          <p className="max-w-xl leading-relaxed text-[var(--text-muted)] text-[15px] sm:text-base">
+            {profile.bio}
+          </p>
+
+          <div className="mt-6 flex items-center gap-3 font-mono text-[13px] text-[var(--text-muted)]">
+            <GraduationCap size={16} className="text-[var(--copper)]" />
+            <span>
+              {education.degree} · {education.school} · {education.period}
+            </span>
+          </div>
+
+          <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
+            {stats.map((item) => (
+              <CounterStat
+                key={item.label}
+                target={item.value}
+                suffix={item.suffix}
+                label={item.label}
+                start={startCounter}
+              />
+            ))}
+          </div>
+
+          <a
+            href={profile.resumeUrl}
+            download
+            className="mt-10 inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold border border-[var(--border-strong)] text-[var(--text)] hover:bg-[var(--hover-bg)] transition"
+          >
+            <Download size={16} />
+            Download CV
+          </a>
+        </div>
       </div>
     </section>
   );

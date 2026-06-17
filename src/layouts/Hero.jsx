@@ -1,77 +1,144 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { ArrowUpRight, Download } from "lucide-react";
+import { profile } from "@/lib/content";
+import { useTypewriter } from "@/lib/useTypewriter";
+import CircuitBackground from "@/components/CircuitBackground";
 
 function Hero() {
+  const role = useTypewriter(profile.roles);
+
+  const goToProjects = () => {
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
-  className="mt-32 px-6 sm:px-8 md:p-12 lg:px-20 text-white grid gap-6 grid-cols-3 grid-rows-1 auto-rows-fr"
-  id="home"
->
-  <div className="hero h-100 backdrop-blur-md bg-[#0d0d0d] rounded-[48px] hero-profile p-6 sm:p-8 md:p-12 lg:p-20 inset-0 border border-white/10 overflow-hidden z-1 col-span-3 md:col-span-2">
+      id="home"
+      className="relative px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-20 sm:pb-28"
+    >
+      <CircuitBackground />
 
-    <div className="flex flex-col justify-between h-full">
-      <div className="flex flex-col space-y-2">
-        <div className="flex items-center space-x-1">
-          <div
-            style={{ backgroundColor: "#a3850d" }}
-            className="w-10 h-[2px]"
-          ></div>
-          <p className="text-sm font-medium text-gray-400">Welcome.</p>
+      <div className="mx-auto max-w-6xl grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-10 items-center">
+        {/* Left: intro */}
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 mb-5">
+            <span className="w-6 h-px bg-[var(--signal)]" />
+            <p className="font-mono text-[12px] tracking-wide text-[var(--text-muted)]">
+              {"// hero.tsx"}
+            </p>
+          </div>
+
+          <h1 className="font-display font-semibold leading-[1.05] text-4xl sm:text-5xl lg:text-6xl text-[var(--text)]">
+            Hi, I&apos;m{" "}
+            <span style={{ color: "var(--signal)" }}>{profile.name}</span>.
+          </h1>
+
+          <div className="mt-3 h-9 sm:h-10 flex items-center">
+            <p className="font-mono text-base sm:text-lg text-[var(--copper)]">
+              {role}
+              <span className="caret-blink inline-block w-[2px] h-5 sm:h-6 ml-1 align-middle bg-[var(--copper)]" />
+            </p>
+          </div>
+
+          <p className="mt-6 max-w-lg text-[15px] sm:text-base leading-relaxed text-[var(--text-muted)]">
+            {profile.bio}
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <button
+              onClick={goToProjects}
+              className="group inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold bg-[var(--signal)] text-[#06120f] hover:brightness-110 transition cursor-pointer"
+            >
+              View projects
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </button>
+            <a
+              href={profile.resumeUrl}
+              download
+              className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold border border-[var(--border-strong)] text-[var(--text)] hover:bg-[var(--hover-bg)] transition"
+            >
+              <Download size={16} />
+              Download CV
+            </a>
+          </div>
+
+          <div className="mt-10 flex items-center gap-2 font-mono text-[12px] text-[var(--text-faint)]">
+            <span className="relative flex w-2 h-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--signal)] pulse-dot" />
+              <span className="relative inline-flex rounded-full w-2 h-2 bg-[var(--signal)]" />
+            </span>
+            Open to opportunities · {profile.location}
+          </div>
         </div>
 
-        <p className="text-4xl font-bold">
-          Hi I am{" "}
-          <span style={{ color: "#a3850d" }} className="text-4xl">
-            Ilham
-          </span>
-        </p>
+        {/* Right: code panel visual */}
+        <div className="relative min-w-0">
+          <div className="bracket-frame rounded-xl border border-[var(--border-soft)] bg-[var(--surface)]/80 backdrop-blur-sm shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--border-soft)] bg-[var(--tint-bg)]">
+              <span className="w-2 h-2 rounded-full bg-[#ff5f57]/70" />
+              <span className="w-2 h-2 rounded-full bg-[#febc2e]/70" />
+              <span className="w-2 h-2 rounded-full bg-[#28c840]/70" />
+              <span className="ml-2 font-mono text-[12px] text-[var(--text-muted)]">
+                ilham.config.ts
+              </span>
+            </div>
+
+            <pre className="font-mono text-[11.5px] sm:text-[13.5px] leading-6 sm:leading-7 p-4 sm:p-6 overflow-x-auto">
+              <code>
+                <Line n={1}>
+                  <Kw>const</Kw> developer = {"{"}
+                </Line>
+                <Line n={2} indent={1}>
+                  <Key>name</Key>: <Str>&quot;{profile.name}&quot;</Str>,
+                </Line>
+                <Line n={3} indent={1}>
+                  <Key>role</Key>: <Str>&quot;Full-Stack Developer&quot;</Str>,
+                </Line>
+                <Line n={4} indent={1}>
+                  <Key>stack</Key>: [<Str>&quot;React&quot;</Str>, <Str>&quot;Laravel&quot;</Str>, <Str>&quot;Flutter&quot;</Str>],
+                </Line>
+                <Line n={5} indent={1}>
+                  <Key>location</Key>: <Str>&quot;Bukittinggi, ID&quot;</Str>,
+                </Line>
+                <Line n={6} indent={1}>
+                  <Key>available</Key>: <Bool>true</Bool>,
+                </Line>
+                <Line n={7}>{"};"}</Line>
+              </code>
+            </pre>
+          </div>
+
+          <div className="absolute -bottom-4 -right-4 sm:-right-8 hidden sm:flex items-center gap-2 rounded-lg border border-[var(--border-soft)] bg-[var(--surface)] px-3 py-2 font-mono text-[11px] text-[var(--text-muted)] shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--signal)]" />
+            build passing
+          </div>
+        </div>
       </div>
-
-      <p className="text-justify">
-  <span className="text-base sm:text-md md:text-lg lg:text-lg font-medium text-gray-400">
-    A Computer Engineering student passionate about software
-    development, particularly in creating responsive and user-friendly
-    websites as well as Android applications that solve real-world
-    problems and provide great user experiences.
-  </span>
-</p>
-
-      <div className="flex space-x-4">
-        <a target="__blank" href="https://www.instagram.com/ilham20___">
-          <div className="w-10 cursor-pointer h-10 bg-transparent border border-gray-200 rounded-lg flex items-center justify-center">
-            <FontAwesomeIcon icon={faInstagram} className="text-white" />
-          </div>
-        </a>
-        <a
-          target="__blank"
-          href="https://linkedin.com/in/ilham-‎-29857b249"
-        >
-          <div className="w-10 cursor-pointer h-10 bg-transparent border border-gray-200 rounded-lg flex items-center justify-center">
-            <FontAwesomeIcon icon={faLinkedinIn} className="text-white" />
-          </div>
-        </a>
-        <a href="#">
-          <div className="w-32 cursor-pointer text-sm h-10 bg-transparent border border-gray-200 text-white font-semibold rounded-lg flex items-center justify-center">
-            Get In Touch
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  {/* Hero photo: hilang di layar kecil */}
-  <div className="hero-photo hidden md:block bg-[#0d0d0d] rounded-[48px] p-4 inset-0 border border-white/10 overflow-hidden pointer-events-none z-1">
-    <div className="w-full h-full relative">
-      <img
-        src="/assets/img/ilham2.png"
-        alt="Hero"
-        className="absolute inset-0 w-full h-full object-cover object-top rounded-[32px]"
-      />
-    </div>
-  </div>
-</section>
-
+    </section>
   );
+}
+
+function Line({ children, n, indent = 0 }) {
+  return (
+    <div className="flex">
+      <span className="w-6 select-none text-right pr-3 text-[var(--text-faint)]">{n}</span>
+      <span style={{ paddingLeft: `${indent * 1.25}rem` }} className="text-[var(--text)]">
+        {children}
+      </span>
+    </div>
+  );
+}
+
+function Kw({ children }) {
+  return <span style={{ color: "var(--copper)" }}>{children}</span>;
+}
+function Key({ children }) {
+  return <span className="text-[var(--text)]">{children}</span>;
+}
+function Str({ children }) {
+  return <span style={{ color: "var(--signal)" }}>{children}</span>;
+}
+function Bool({ children }) {
+  return <span style={{ color: "var(--copper)" }}>{children}</span>;
 }
 
 export default Hero;
