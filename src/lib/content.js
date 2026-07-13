@@ -21,7 +21,7 @@ export const profile = {
   available: true,
   email: "ilhmoxy@gmail.com",
   phone: "+62 898 4828 899",
-  resumeUrl: "/assets/Ilham-Resume.pdf",
+  resumeUrl: "/assets/CV Ilham.pdf",
   socials: {
     github: "https://github.com/Oxyy77",
     linkedin: "https://linkedin.com/in/ilham-‎-29857b249",

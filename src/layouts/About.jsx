@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Download } from "lucide-react";
 import { profile, stats, education } from "@/lib/content";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
@@ -97,7 +97,14 @@ function About() {
             ))}
           </div>
 
-
+          <a
+            href={profile.resumeUrl}
+            download
+            className="mt-10 inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold border border-[var(--border-strong)] text-[var(--text)] hover:bg-[var(--hover-bg)] transition"
+          >
+            <Download size={16} />
+            Download CV
+          </a>
         </Reveal>
       </div>
     </section>
